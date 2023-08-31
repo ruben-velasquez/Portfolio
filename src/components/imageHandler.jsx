@@ -2,17 +2,18 @@
 import { useState } from "react";
 import { Image, Spinner } from "@nextui-org/react";
 
-const ImageHandler = ({ src, alt, width, height }) => {
+const ImageHandler = ({ src, alt, width, height, className="" }) => {
   const [loading, setLoading] = useState(true);
   return (
     <div className="relative">
-      {loading && <Spinner className={`absolute bottom-[50%] left-[50%]`} />}
+      {loading && <Spinner className={`absolute bottom-[calc(50%-16px)] left-[calc(50%-16px)]`} />}
       <Image
         src={src}
         alt={alt}
         width={width}
         height={height}
         onLoad={() => setLoading(false)}
+        className={className}
       />
     </div>
   );

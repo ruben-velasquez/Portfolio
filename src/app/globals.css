@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     @apply bg-gray-900
 }
 
