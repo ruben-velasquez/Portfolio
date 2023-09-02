@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="flex flex-col gap-5 max-w-sm order-last md:order-first">
         <h1 className={`text-6xl lg:text-7xl font-bold text-center md:text-left ${kanit.className} text-highlight`}>{heroText}</h1>
         <p className="text-slate-400 text-center md:text-left">{description}</p>
-        <Button className="bg-action hover:bg-hover-action">Call to Action</Button>
+        <Button className="font-bold bg-action hover:bg-hover-action">Call to Action</Button>
       </div>
       <ImageHandler
         src={"https://placehold.co/600x400?text=Hello+World"}

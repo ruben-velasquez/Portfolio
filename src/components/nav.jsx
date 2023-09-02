@@ -10,17 +10,17 @@ export default function Nav() {
       <div><h1 className={`font-bold text-2xl ${kanit.className} text-highlight`}>Logo</h1></div>
       <ul className="lg:flex flex-row gap-3 hidden">
         <li>
-          <Link className="text-action hover:text-hover-action" href="#home">
+          <Link className="text-action hover:text-hover-action font-bold" href="#home">
             Github
           </Link>
         </li>
         <li>
-          <Link className="text-action hover:text-hover-action" href="#about">
+          <Link className="text-action hover:text-hover-action font-bold" href="#about">
             Twitter
           </Link>
         </li>
         <li>
-          <Link className="text-action hover:text-hover-action" href="#proyects">
+          <Link className="text-action hover:text-hover-action font-bold" href="#proyects">
             Linkedin
           </Link>
         </li>
