@@ -42,7 +42,7 @@ export default function ProyectCard({ name, description, isComplete, tags, image
         <p className="text-slate-500 text-base transition-all duration-700 group-hover:text-slate-400">{fixedDescription}</p>
       </div>
 
-      <Button className="m-[10px] mt-auto font-bold bg-action hover:bg-hover-action">
+      <Button color="primary" className="m-[10px] mt-auto font-bold hover:bg-hover-action">
         Learn more
       </Button>
     </div>

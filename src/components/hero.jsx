@@ -16,7 +16,10 @@ export default function Hero() {
       <div className="flex flex-col gap-5 max-w-sm order-last md:order-first">
         <h1 className={`text-6xl lg:text-7xl font-bold text-center md:text-left ${kanit.className} text-highlight`}>{heroText}</h1>
         <p className="text-slate-400 text-center md:text-left">{description}</p>
-        <Button className="font-bold bg-action hover:bg-hover-action w-min px-7">Call to Action</Button>
+        <div className="flex justify-center md:justify-start gap-2">
+          <Button color="primary" className="font-bold hover:bg-hover-action w-min px-7">Call to Action</Button>
+          <Button color="primary" variant="ghost" className="font-bold hover:bg-hover-action w-min px-7">Call to Action</Button>
+        </div>
       </div>
       <ImageHandler
         src={"https://placehold.co/600x400?text=Hello+World"}
