@@ -12,16 +12,16 @@ export default function Hero() {
     "A quickly description about the page and the problem that we wanna solve.";
 
   return (
-    <main className="px-10 sm:px-[50px] md:px-5 lg:px-[200px] min-h-[calc(80vh-80px)] lg:min-h-[calc(50vh-80px)] grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center">
+    <main className="px-10 sm:px-[50px] md:px-5 lg:px-[200px] min-h-[calc(80vh-80px)] lg:min-h-[calc(50vh-80px)] grid grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-start gap-4 items-center justify-center">
       <div className="flex flex-col gap-5 max-w-sm order-last md:order-first">
-        <h1 className={`text-6xl lg:text-7xl font-bold text-center lg:text-left ${kanit.className}`}>{heroText}</h1>
+        <h1 className={`text-6xl lg:text-7xl font-bold text-center lg:text-left ${kanit.className} text-highlight`}>{heroText}</h1>
         <p className="text-slate-400 text-center lg:text-left">{description}</p>
-        <Button className="" color="primary">Call to Action</Button>
+        <Button className="bg-action hover:bg-hover-action">Call to Action</Button>
       </div>
       <ImageHandler
         src={"https://placehold.co/600x400?text=Hello+World"}
         alt="Descripción de la imagen"
-        className={"order-first md:order-last w-[100%]"}
+        className={"order-first md:order-last w-[100%] max-w-[400px]"}
       ></ImageHandler>
     </main>
   );

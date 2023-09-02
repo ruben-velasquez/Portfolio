@@ -5,7 +5,7 @@
 body {
     padding-top: 70px;
     min-height: 100vh;
-    @apply bg-gray-900
+    @apply bg-background
 }
 
 main {
