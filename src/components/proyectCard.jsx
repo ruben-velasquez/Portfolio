@@ -10,7 +10,7 @@ export default function ProyectCard({ name, description, isComplete, tags, image
     .concat("...");
 
   return (
-    <div className="bg-gray-800 group overflow-hidden rounded-medium max-w-[300px] h-[400px] transition-all duration-500 border-gray-700 hover:border-gray-400 border-2 flex flex-col gap-[10px]">
+    <div className="bg-box group overflow-hidden rounded-medium max-w-[300px] h-[400px] transition-all duration-500 border-gray-700 hover:border-gray-400 border-2 flex flex-col gap-[10px]">
       <div className="relative">
         <ImageHandler
           src={imageUrl}
@@ -42,7 +42,7 @@ export default function ProyectCard({ name, description, isComplete, tags, image
         <p className="text-slate-500 text-base transition-all duration-700 group-hover:text-slate-400">{fixedDescription}</p>
       </div>
 
-      <Button color="primary" className="m-[10px] mt-auto font-bold">
+      <Button className="m-[10px] mt-auto font-bold bg-action hover:bg-hover-action">
         Learn more
       </Button>
     </div>

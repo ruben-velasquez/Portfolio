@@ -14,6 +14,7 @@ module.exports = {
         "navigation": "#05161A",
         "background": "#05161A",
         "highlight": "#15af9a",
+        "box": "#082427",
         "action": "#0F969C",
         "hover-action": "#077F6A"
       }
