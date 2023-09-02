@@ -16,7 +16,7 @@ export default async function Proyects() {
       className="px-10 sm:px-[50px] md:px-5 lg:px-[200px] flex flex-col gap-4"
     >
       <h1
-        className={`w-full text-3xl font-bold text-center ${kanit.className}`}
+        className={`w-full text-3xl font-bold text-center text-highlight ${kanit.className}`}
       >
         Proyects
       </h1>
