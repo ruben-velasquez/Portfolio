@@ -6,7 +6,7 @@ const ImageHandler = ({ src, alt, width, height, className="" }) => {
   const [loading, setLoading] = useState(true);
   return (
     <div className="relative">
-      {loading && <Spinner className={`absolute bottom-[calc(50%-16px)] left-[calc(50%-16px)]`} />}
+      {loading && <Spinner color="danger" className={`absolute bottom-[calc(50%-16px)] left-[calc(50%-16px)]`} />}
       <Image
         src={src}
         alt={alt}
