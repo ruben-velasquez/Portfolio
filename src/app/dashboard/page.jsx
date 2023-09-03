@@ -1,30 +1,15 @@
-"use client"
-import { useEffect, useState } from 'react'
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs"
-import { useRouter } from 'next/navigation'
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
+import { cookies } from "next/headers";
+import { Kanit } from "next/font/google";
+
+const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export default function Dashboard() {
-  const supabase = createClientComponentClient()
-  const router = useRouter()
-  const [session, setSession] = useState(null)
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data }) => {
-      if (!data.session) {
-        router.push("/")
-      } else {
-        setSession(data.session)
-      }
-    })
-  }, [supabase, router])
-
-  if (!session) {
-    return null
-  }
+  const supabase = createServerComponentClient({ cookies })
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div className='px-10 sm:px-[50px] md:px-5 lg:px-[200px] flex flex-col items-center gap-4'>
+      <h1 className={`w-full text-3xl font-bold text-center text-highlight ${kanit.className}`}>Dashboard</h1>
     </div>
   )
 }

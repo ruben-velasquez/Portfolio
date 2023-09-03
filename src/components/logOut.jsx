@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function LogOut() {
+  const [isLoading, setLoading] = React.useState(false);
   const supabase = createClientComponentClient();
   const router = useRouter();
 
@@ -24,8 +25,6 @@ export default function LogOut() {
       })
     }
   };
-
-  const [isLoading, setLoading] = React.useState(false);
 
   return (
     <Button
