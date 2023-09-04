@@ -98,7 +98,8 @@ export default function ProyectForm({ project = null }) {
         isRequired
         name="isComplete"
         label="Your proyect is complete?"
-        className="max-w-xs"
+        disabled={isLoading}
+        className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       >
         <SelectItem key={true} value={true}>
           True
