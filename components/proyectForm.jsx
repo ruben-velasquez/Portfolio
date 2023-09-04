@@ -22,6 +22,7 @@ export default function ProyectForm({ project = null }) {
           name: tag,
         };
       }),
+      imageUrl: event.target.imageUrl.value,
     };
 
     if (project) {
@@ -49,7 +50,7 @@ export default function ProyectForm({ project = null }) {
   };
   
   const createProyect = async (newProject) => {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("Projects")
       .insert([newProject])
       .select();
@@ -112,6 +113,17 @@ export default function ProyectForm({ project = null }) {
         variant="bordered"
         placeholder="Enter the tags separated by comma"
         defaultValue={project?.tags.map((tag) => tag.name).join(", ")}
+        className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
+      />
+      <Input
+        isClearable
+        name="imageUrl"
+        type="text"
+        disabled={isLoading}
+        label="Project Image"
+        variant="bordered"
+        placeholder="Enter the image URL"
+        defaultValue={project?.imageUrl || ""}
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
       <Button
