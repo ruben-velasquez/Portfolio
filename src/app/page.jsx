@@ -1,8 +1,6 @@
 import Hero from "@/components/hero";
 import AboutMe from "@/components/aboutMe";
 import Proyects from "@/components/proyects";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 
 export default async function page() {
   return (

@@ -24,6 +24,7 @@ export default async function Proyects() {
         {projects.map((project) => (
           <ProyectCard
             key={project.id}
+            id={project.id}
             name={project.name}
             description={project.description}
             isComplete={project.isComplete}
