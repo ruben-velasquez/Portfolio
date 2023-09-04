@@ -37,6 +37,7 @@ export default function LogIn() {
   return (
     <form className="flex flex-col gap-4" onSubmit={handleLogin}>
       <Input
+        isRequired
         isClearable
         disabled={isLoading}
         name="email"
@@ -49,6 +50,7 @@ export default function LogIn() {
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
       <Input
+        isRequired
         disabled={isLoading}
         name="password"
         label="Password"
