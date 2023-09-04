@@ -6,10 +6,17 @@ import {
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
 } from "@nextui-org/react";
 import { SlOptionsVertical } from "react-icons/sl";
 import ImageHandler from "./imageHandler";
 import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function ProyectCard({
   id,
@@ -20,20 +27,30 @@ export default function ProyectCard({
   imageUrl,
   admin = false,
 }) {
-  const router = useRouter()
+  const supabase = createClientComponentClient(); 
+  const router = useRouter();
   const maxDescriptionCharacters = 120;
   const maxNameCharacters = 9;
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const fixedName = name.length > maxNameCharacters ? name
-    .slice(0, maxNameCharacters - 3)
-    .concat("...") : name;
+  const fixedName =
+    name.length > maxNameCharacters
+      ? name.slice(0, maxNameCharacters - 3).concat("...")
+      : name;
 
-  const fixedDescription = description.length > maxDescriptionCharacters ? description
-    .slice(0, maxDescriptionCharacters - 3)
-    .concat("...") : description;
+  const fixedDescription =
+    description.length > maxDescriptionCharacters
+      ? description.slice(0, maxDescriptionCharacters - 3).concat("...")
+      : description;
 
   const editHandler = (e) => {
-    router.push(`/dashboard/proyect/edit/${id}`)
+    router.push(`/dashboard/proyect/edit/${id}`);
+  };
+
+  const deleteHandler = async () => {
+    fetch(`/dashboard/proyect/delete/${id}`).then(() => {
+      router.refresh();
+    });
   };
 
   return (
@@ -89,11 +106,14 @@ export default function ProyectCard({
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Static Actions">
-                  <DropdownItem key="edit" onPress={editHandler}>Edit proyect</DropdownItem>
+                  <DropdownItem key="edit" onPress={editHandler}>
+                    Edit proyect
+                  </DropdownItem>
                   <DropdownItem
                     key="delete"
                     className="text-danger"
                     color="danger"
+                    onPress={onOpen}
                   >
                     Delete Proyect
                   </DropdownItem>
@@ -115,6 +135,34 @@ export default function ProyectCard({
       >
         Learn more
       </Button>
+
+      {admin ? (
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  Confirm to delete
+                </ModalHeader>
+                <ModalBody className="text-slate-400">
+                  Are you sure you want to delete this Proyect? This action cannot
+                  be undone.
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="default" variant={"light"} onPress={onClose}>
+                    Cancel
+                  </Button>
+                  <Button color="danger" onPress={deleteHandler}>
+                    Delete
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
