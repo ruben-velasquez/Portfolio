@@ -16,7 +16,6 @@ import {
 import { SlOptionsVertical } from "react-icons/sl";
 import ImageHandler from "./imageHandler";
 import { useRouter } from "next/navigation";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 export default function ProyectCard({
   id,
@@ -27,7 +26,6 @@ export default function ProyectCard({
   imageUrl,
   admin = false,
 }) {
-  const supabase = createClientComponentClient(); 
   const router = useRouter();
   const maxDescriptionCharacters = 120;
   const maxNameCharacters = 9;
@@ -43,7 +41,7 @@ export default function ProyectCard({
       ? description.slice(0, maxDescriptionCharacters - 3).concat("...")
       : description;
 
-  const editHandler = (e) => {
+  const editHandler = () => {
     router.push(`/dashboard/proyect/edit/${id}`);
   };
 
@@ -145,8 +143,8 @@ export default function ProyectCard({
                   Confirm to delete
                 </ModalHeader>
                 <ModalBody className="text-slate-400">
-                  Are you sure you want to delete this Proyect? This action cannot
-                  be undone.
+                  Are you sure you want to delete this Proyect? This action
+                  cannot be undone.
                 </ModalBody>
                 <ModalFooter>
                   <Button color="default" variant={"light"} onPress={onClose}>

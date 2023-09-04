@@ -33,7 +33,7 @@ export default function ProyectForm({ project = null }) {
   };
 
   const editProyect = async (updatedProject) => {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from("Projects")
       .update(updatedProject)
       .eq("id", project.id)
@@ -45,10 +45,10 @@ export default function ProyectForm({ project = null }) {
     } else {
       setTimeout(() => {
         router.push("/dashboard");
-      }, 1000)
+      }, 1000);
     }
   };
-  
+
   const createProyect = async (newProject) => {
     const { error } = await supabase
       .from("Projects")
@@ -61,7 +61,7 @@ export default function ProyectForm({ project = null }) {
     } else {
       setTimeout(() => {
         router.push("/dashboard");
-      }, 1000)
+      }, 1000);
     }
   };
 

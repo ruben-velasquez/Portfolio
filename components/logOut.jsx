@@ -10,19 +10,19 @@ export default function LogOut() {
   const router = useRouter();
 
   const handleLogout = async () => {
-    setLoading(true)
+    setLoading(true);
 
     const { error } = await supabase.auth.signOut();
 
     if (error) {
       alert(error);
-      setLoading(false)
+      setLoading(false);
     } else {
       supabase.auth.getSession().then(({ data }) => {
-        if(!data.session) {
+        if (!data.session) {
           router.refresh();
         }
-      })
+      });
     }
   };
 
@@ -31,7 +31,9 @@ export default function LogOut() {
       onPress={handleLogout}
       disabled={isLoading}
       color="primary"
-      className={`font-bold hover:bg-hover-action w-min px-7 ${isLoading ? "opacity-50" : ""}`}
+      className={`font-bold hover:bg-hover-action w-min px-7 ${
+        isLoading ? "opacity-50" : ""
+      }`}
     >
       Log out
     </Button>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import ProyectCard from "./proyectCard";
 import AddProyectCard from "@/components/addProyectCard";
 import { Kanit } from "next/font/google";
@@ -10,8 +10,12 @@ export default function ProyectsDashboard({ projects }) {
   return (
     <>
       <div className="space-y-1 text-left w-full">
-        <h4 className={`text-lg font-medium text-highlight ${kanit.className}`}>Proyects</h4>
-        <p className="text-small text-default-400">All the proyects made by me.</p>
+        <h4 className={`text-lg font-medium text-highlight ${kanit.className}`}>
+          Proyects
+        </h4>
+        <p className="text-small text-default-400">
+          All the proyects made by me.
+        </p>
       </div>
       <Divider className="my-4" />
 
@@ -23,7 +27,7 @@ export default function ProyectsDashboard({ projects }) {
             name={project.name}
             description={project.description}
             isComplete={project.isComplete}
-            tags={project.tags} 
+            tags={project.tags}
             imageUrl={project.imageUrl}
             admin={true}
           />
