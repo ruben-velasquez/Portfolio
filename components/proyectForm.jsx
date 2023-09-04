@@ -27,7 +27,7 @@ export default function ProyectForm({ project = null }) {
     if (project) {
       editProyect(newProject);
     } else {
-      alert("Creando...");
+      createProyect(newProject);
     }
   };
 
@@ -40,6 +40,22 @@ export default function ProyectForm({ project = null }) {
 
     if (error) {
       alert("Hubo un error actualizando el proyecto");
+      setLoading(false);
+    } else {
+      setTimeout(() => {
+        router.push("/dashboard");
+      }, 1000)
+    }
+  };
+  
+  const createProyect = async (newProject) => {
+    const { data, error } = await supabase
+      .from("Projects")
+      .insert([newProject])
+      .select();
+
+    if (error) {
+      alert("Hubo un error creando el proyecto");
       setLoading(false);
     } else {
       setTimeout(() => {

@@ -1,5 +1,6 @@
 "use client"
 import ProyectCard from "./proyectCard";
+import AddProyectCard from "@/components/addProyectCard";
 import { Kanit } from "next/font/google";
 import { Divider } from "@nextui-org/react";
 
@@ -27,6 +28,7 @@ export default function ProyectsDashboard({ projects }) {
             admin={true}
           />
         ))}
+        <AddProyectCard />
       </div>
     </>
   );

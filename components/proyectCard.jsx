@@ -21,11 +21,16 @@ export default function ProyectCard({
   admin = false,
 }) {
   const router = useRouter()
-  const maxCharacters = 120;
+  const maxDescriptionCharacters = 120;
+  const maxNameCharacters = 9;
 
-  const fixedDescription = description
-    .slice(0, maxCharacters - 3)
-    .concat("...");
+  const fixedName = name.length > maxNameCharacters ? name
+    .slice(0, maxNameCharacters - 3)
+    .concat("...") : name;
+
+  const fixedDescription = description.length > maxDescriptionCharacters ? description
+    .slice(0, maxDescriptionCharacters - 3)
+    .concat("...") : description;
 
   const editHandler = (e) => {
     router.push(`/dashboard/proyect/edit/${id}`)
@@ -59,7 +64,7 @@ export default function ProyectCard({
       <div className="flex flex-col gap-[10px] mx-[10px]">
         <div className="flex flex-row justify-between items-start">
           <h1 className="font-bold text-lg text-slate-400 transition-all duration-700 group-hover:text-slate-50">
-            {name}
+            {fixedName}
           </h1>
           <div className="flex flex-row gap-[10px] items-center">
             {isComplete ? (
