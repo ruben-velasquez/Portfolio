@@ -71,6 +71,7 @@ export default function ProyectForm({ project = null }) {
       className="flex flex-col gap-4 lg:min-w-[300px]"
     >
       <Input
+        isRequired
         isClearable
         name="name"
         type="text"
@@ -82,6 +83,7 @@ export default function ProyectForm({ project = null }) {
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
       <Input
+        isRequired
         isClearable
         name="description"
         type="text"
@@ -93,6 +95,7 @@ export default function ProyectForm({ project = null }) {
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
       <Select
+        isRequired
         name="isComplete"
         label="Your proyect is complete?"
         className="max-w-xs"
@@ -116,6 +119,7 @@ export default function ProyectForm({ project = null }) {
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
       <Input
+        isRequired
         isClearable
         name="imageUrl"
         type="text"
