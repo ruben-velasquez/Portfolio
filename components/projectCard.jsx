@@ -17,7 +17,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import ImageHandler from "./imageHandler";
 import { useRouter } from "next/navigation";
 
-export default function ProyectCard({
+export default function ProjectsCard({
   id,
   name,
   description,
@@ -105,7 +105,7 @@ export default function ProyectCard({
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Static Actions">
                   <DropdownItem key="edit" onPress={editHandler}>
-                    Edit proyect
+                    Edit projects
                   </DropdownItem>
                   <DropdownItem
                     key="delete"
@@ -113,7 +113,7 @@ export default function ProyectCard({
                     color="danger"
                     onPress={onOpen}
                   >
-                    Delete Proyect
+                    Delete Projects
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
@@ -143,7 +143,7 @@ export default function ProyectCard({
                   Confirm to delete
                 </ModalHeader>
                 <ModalBody className="text-slate-400">
-                  Are you sure you want to delete this Proyect? This action
+                  Are you sure you want to delete this Projects? This action
                   cannot be undone.
                 </ModalBody>
                 <ModalFooter>

@@ -4,7 +4,7 @@ import { Input, Select, SelectItem, Button } from "@nextui-org/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 
-export default function ProyectForm({ project = null }) {
+export default function ProjectsForm({ project = null }) {
   const [isLoading, setLoading] = React.useState(false);
   const supabase = createClientComponentClient();
   const router = useRouter();
@@ -26,13 +26,13 @@ export default function ProyectForm({ project = null }) {
     };
 
     if (project) {
-      editProyect(newProject);
+      editProjects(newProject);
     } else {
-      createProyect(newProject);
+      createProjects(newProject);
     }
   };
 
-  const editProyect = async (updatedProject) => {
+  const editProjects = async (updatedProject) => {
     const { error } = await supabase
       .from("Projects")
       .update(updatedProject)
@@ -40,7 +40,7 @@ export default function ProyectForm({ project = null }) {
       .select();
 
     if (error) {
-      alert("Hubo un error actualizando el proyecto");
+      alert("Hubo un error actualizando el projectso");
       setLoading(false);
     } else {
       setTimeout(() => {
@@ -49,14 +49,14 @@ export default function ProyectForm({ project = null }) {
     }
   };
 
-  const createProyect = async (newProject) => {
+  const createProjects = async (newProject) => {
     const { error } = await supabase
       .from("Projects")
       .insert([newProject])
       .select();
 
     if (error) {
-      alert("Hubo un error creando el proyecto");
+      alert("Hubo un error creando el projectso");
       setLoading(false);
     } else {
       setTimeout(() => {
@@ -97,7 +97,7 @@ export default function ProyectForm({ project = null }) {
       <Select
         isRequired
         name="isComplete"
-        label="Your proyect is complete?"
+        label="Your projects is complete?"
         disabled={isLoading}
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       >

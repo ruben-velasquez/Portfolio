@@ -1,5 +1,5 @@
 import { Kanit } from "next/font/google";
-import ProyectForm from "@/components/proyectForm";
+import ProjectsForm from "@/components/projectForm";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
@@ -11,7 +11,7 @@ export default async function CreatePage() {
       >
         Create Project
       </h1>
-      <ProyectForm />
+      <ProjectsForm />
     </div>
   );
 }

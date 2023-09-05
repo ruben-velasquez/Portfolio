@@ -1,7 +1,7 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Kanit } from "next/font/google";
-import ProyectsDashboard from "@/components/proyectsDashboard";
+import ProjectsDashboard from "@/components/projectsDashboard";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
@@ -18,7 +18,7 @@ export default async function Dashboard() {
         Dashboard
       </h1>
 
-      <ProyectsDashboard projects={projects} />
+      <ProjectsDashboard projects={projects} />
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import { AiOutlineFolderAdd } from "react-icons/ai";
 import Link from "next/link";
 
-export default function AddProyectCard() {
+export default function AddProjectsCard() {
   return (
     <Link href={"dashboard/proyect/create"}>
       <div className="bg-transparent group overflow-hidden rounded-medium w-[300px] max-w-[300px] h-[400px] transition-all duration-500 border-gray-700 hover:border-gray-400 border-2 flex flex-col items-center justify-center gap-[10px]">

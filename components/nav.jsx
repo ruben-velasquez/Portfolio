@@ -32,7 +32,7 @@ export default function Nav() {
         <li>
           <Link
             className="text-action hover:text-hover-action font-bold"
-            href="#proyects"
+            href="#projects"
           >
             Linkedin
           </Link>
