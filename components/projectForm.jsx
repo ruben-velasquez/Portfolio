@@ -23,6 +23,7 @@ export default function ProjectsForm({ project = null }) {
         };
       }),
       imageUrl: event.target.imageUrl.value,
+      link: event.target.link.value,
     };
 
     if (project) {
@@ -40,7 +41,7 @@ export default function ProjectsForm({ project = null }) {
       .select();
 
     if (error) {
-      alert("Hubo un error actualizando el projectso");
+      alert("Hubo un error actualizando el proyecto");
       setLoading(false);
     } else {
       setTimeout(() => {
@@ -56,7 +57,7 @@ export default function ProjectsForm({ project = null }) {
       .select();
 
     if (error) {
-      alert("Hubo un error creando el projectso");
+      alert("Hubo un error creando el proyecto");
       setLoading(false);
     } else {
       setTimeout(() => {
@@ -129,6 +130,18 @@ export default function ProjectsForm({ project = null }) {
         variant="bordered"
         placeholder="Enter the image URL"
         defaultValue={project?.imageUrl || ""}
+        className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
+      />
+      <Input
+        isRequired
+        isClearable
+        name="link"
+        type="text"
+        disabled={isLoading}
+        label="Project Page"
+        variant="bordered"
+        placeholder="Enter the proyect page URL"
+        defaultValue={project?.link || ""}
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
       <Button

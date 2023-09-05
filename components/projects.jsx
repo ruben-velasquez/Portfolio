@@ -29,6 +29,7 @@ export default async function Projects() {
             description={project.description}
             isComplete={project.isComplete}
             tags={project.tags}
+            link={project.link}
             imageUrl={project.imageUrl}
           />
         ))}

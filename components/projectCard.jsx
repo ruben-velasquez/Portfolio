@@ -16,6 +16,7 @@ import {
 import { SlOptionsVertical } from "react-icons/sl";
 import ImageHandler from "./imageHandler";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ProjectsCard({
   id,
@@ -24,6 +25,7 @@ export default function ProjectsCard({
   isComplete,
   tags,
   imageUrl,
+  link,
   admin = false,
 }) {
   const router = useRouter();
@@ -105,7 +107,7 @@ export default function ProjectsCard({
                 </DropdownTrigger>
                 <DropdownMenu aria-label="Static Actions">
                   <DropdownItem key="edit" onPress={editHandler}>
-                    Edit projects
+                    Edit project
                   </DropdownItem>
                   <DropdownItem
                     key="delete"
@@ -113,7 +115,7 @@ export default function ProjectsCard({
                     color="danger"
                     onPress={onOpen}
                   >
-                    Delete Projects
+                    Delete Project
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
@@ -127,12 +129,14 @@ export default function ProjectsCard({
         </p>
       </div>
 
-      <Button
-        color="primary"
-        className="m-[10px] mt-auto font-bold hover:bg-hover-action"
-      >
-        Learn more
-      </Button>
+      <Link href={link} className="m-[10px] mt-auto">
+        <Button
+          color="primary"
+          className="w-full font-bold hover:bg-hover-action"
+        >
+          Learn more
+        </Button>
+      </Link>
 
       {admin ? (
         <Modal backdrop={"blur"} isOpen={isOpen} onOpenChange={onOpenChange}>

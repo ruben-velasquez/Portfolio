@@ -29,6 +29,7 @@ export default function ProjectsDashboard({ projects }) {
             isComplete={project.isComplete}
             tags={project.tags}
             imageUrl={project.imageUrl}
+            link={project.link}
             admin={true}
           />
         ))}
