@@ -5,10 +5,14 @@ import { cookies } from "next/headers";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
-export default async function Projects() {
+async function GetProjects() {
   const supabase = createServerComponentClient({ cookies });
 
-  const { data: projects } = await supabase.from("Projects").select();
+  return supabase.from("Projects").select();
+}
+
+export default async function Projects() {
+  const { data: projects } = await GetProjects();
 
   return (
     <summary
