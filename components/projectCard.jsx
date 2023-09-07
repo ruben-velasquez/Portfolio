@@ -54,14 +54,13 @@ export default function ProjectsCard({
   };
 
   return (
-    <div className="bg-box group overflow-hidden rounded-medium max-w-[300px] h-[400px] transition-all duration-500 border-gray-700 hover:border-gray-400 border-2 flex flex-col gap-[10px]">
-      <div className="relative">
+    <div className="bg-box group overflow-hidden rounded-medium w-[300px] max-w-[300px] h-[400px] transition-all duration-500 border-gray-700 hover:border-gray-400 border-2 flex flex-col gap-[10px]">
+      <div className="relative w-full h-[150px] overflow-hidden">
         <ImageHandler
           src={imageUrl}
           alt="Descripción de la imagen"
-          className={
-            "order-first lg:order-last w-full rounded-b-none max-h-[170px] object-fill"
-          }
+          width={300}
+          className={"order-first lg:order-last rounded-b-none"}
         ></ImageHandler>
         <div className="z-10 absolute top-1 right-1 flex flex-row-reverse gap-1">
           {tags.map((tag, index) => (
@@ -147,7 +146,7 @@ export default function ProjectsCard({
                   Confirm to delete
                 </ModalHeader>
                 <ModalBody className="text-slate-400">
-                  Are you sure you want to delete this Projects? This action
+                  Are you sure you want to delete this Project? This action
                   cannot be undone.
                 </ModalBody>
                 <ModalFooter>
