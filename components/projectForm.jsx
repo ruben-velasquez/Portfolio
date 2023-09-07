@@ -33,9 +33,7 @@ export default function ProjectsForm({ project = null }) {
       alert("Hubo un error actualizando el proyecto");
       setLoading(false);
     } else {
-      setTimeout(() => {
-        router.push("/dashboard");
-      }, 1000);
+      router.push("/dashboard");
     }
   };
 
