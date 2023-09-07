@@ -3,6 +3,7 @@ import React from "react";
 import { Input, Select, SelectItem, Button } from "@nextui-org/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ProjectsForm({ project = null }) {
   const [isLoading, setLoading] = React.useState(false);
@@ -144,16 +145,26 @@ export default function ProjectsForm({ project = null }) {
         defaultValue={project?.link || ""}
         className={`max-w-xs ${isLoading ? "opacity-50" : ""}`}
       />
-      <Button
-        disabled={isLoading}
-        type="submit"
-        color="primary"
-        className={`${
-          isLoading ? "opacity-50" : ""
-        } font-bold hover:bg-hover-action w-min px-7`}
-      >
-        Confirm
-      </Button>
+      <div className="flex gap-4 justify-start">
+        <Button
+          disabled={isLoading}
+          type="submit"
+          color="primary"
+          className={`${
+            isLoading ? "opacity-50" : ""
+          } font-bold hover:bg-hover-action w-min px-7`}
+        >
+          Confirm
+        </Button>
+        <Link href={"/dashboard"}>
+          <Button
+            color="default"
+            className={`font-bold w-min px-7 ${isLoading ? "opacity-50" : ""}`}
+          >
+            Cancel
+          </Button>
+        </Link>
+      </div>
     </form>
   );
 }
