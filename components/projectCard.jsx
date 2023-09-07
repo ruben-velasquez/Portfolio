@@ -17,6 +17,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 import ImageHandler from "./imageHandler";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { deleteProyect } from "@/utils/deleteProyect";
 
 export default function ProjectsCard({
   id,
@@ -48,7 +49,7 @@ export default function ProjectsCard({
   };
 
   const deleteHandler = async () => {
-    fetch(`/dashboard/proyect/delete/${id}`).then(() => {
+    deleteProyect(id).then(() => {
       router.refresh();
     });
   };

@@ -4,6 +4,9 @@ import { Input, Select, SelectItem, Button } from "@nextui-org/react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { handleProject } from "@/utils/handleProject";
+import { insertProject } from "@/utils/insertProyect";
+import { editProjects } from "@/utils/editProyect";
 
 export default function ProjectsForm({ project = null }) {
   const [isLoading, setLoading] = React.useState(false);
@@ -14,32 +17,17 @@ export default function ProjectsForm({ project = null }) {
     setLoading(true);
     event.preventDefault();
 
-    const newProject = {
-      name: event.target.name.value,
-      description: event.target.description.value,
-      isComplete: event.target.isComplete.value == "true",
-      tags: event.target.tags.value.split(", ").map((tag) => {
-        return {
-          name: tag,
-        };
-      }),
-      imageUrl: event.target.imageUrl.value,
-      link: event.target.link.value,
-    };
+    const newProject = handleProject(event);
 
     if (project) {
-      editProjects(newProject);
+      handleEdit(newProject);
     } else {
       createProjects(newProject);
     }
   };
 
-  const editProjects = async (updatedProject) => {
-    const { error } = await supabase
-      .from("Projects")
-      .update(updatedProject)
-      .eq("id", project.id)
-      .select();
+  const handleEdit = async (updatedProject) => {
+    const error = await editProjects(updatedProject, project.id);
 
     if (error) {
       alert("Hubo un error actualizando el proyecto");
@@ -52,10 +40,7 @@ export default function ProjectsForm({ project = null }) {
   };
 
   const createProjects = async (newProject) => {
-    const { error } = await supabase
-      .from("Projects")
-      .insert([newProject])
-      .select();
+    const error = await insertProject(newProject, supabase);
 
     if (error) {
       alert("Hubo un error creando el proyecto");
