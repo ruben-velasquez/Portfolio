@@ -11,10 +11,8 @@ export default function Nav() {
     <nav className="z-50 bg-navigation items-center h-[70px] flex flex-row py-5 px-10 sm:px-[50px] md:px-5 lg:px-[200px] justify-between fixed top-0 left-0 right-0">
       <div>
         <Link href="/">
-          <h1
-            className={`${kanit.className} font-bold text-2xl text-highlight`}
-          >
-            Logo
+          <h1 className={`${kanit.className} font-bold text-xl text-highlight`}>
+            Rubén Velásquez
           </h1>
         </Link>
       </div>
@@ -22,7 +20,7 @@ export default function Nav() {
         <li>
           <Link
             className="text-action hover:text-hover-action font-bold"
-            href="#home"
+            href="https://github.com/ruben-velasquez"
           >
             Github
           </Link>
@@ -30,7 +28,7 @@ export default function Nav() {
         <li>
           <Link
             className="text-action hover:text-hover-action font-bold"
-            href="#about"
+            href="https://twitter.com/Rub3nVM"
           >
             Twitter
           </Link>
@@ -38,7 +36,7 @@ export default function Nav() {
         <li>
           <Link
             className="text-action hover:text-hover-action font-bold"
-            href="#projects"
+            href="https://www.linkedin.com/in/ruben-velasquez-b42aa3221/"
           >
             LinkedIn
           </Link>

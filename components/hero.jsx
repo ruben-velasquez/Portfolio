@@ -1,14 +1,14 @@
 "use client";
 import { Button } from "@nextui-org/react";
+import Link from "next/link";
 import ImageHandler from "./imageHandler";
 import { Kanit } from "next/font/google";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export default function Hero() {
-  let heroText = "Hero Text";
-  let description =
-    "A quickly description about the page and the problem that we wanna solve.";
+  let heroText = "Rubén Velásquez";
+  let description = "Web developer and game developer";
 
   return (
     <main className="px-10 sm:px-[50px] md:px-5 lg:px-[200px] min-h-[calc(80vh-80px)] lg:min-h-[calc(50vh-80px)] grid grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-start gap-4 items-center justify-center">
@@ -20,24 +20,30 @@ export default function Hero() {
         </h1>
         <p className="text-slate-400 text-center md:text-left">{description}</p>
         <div className="flex justify-center md:justify-start gap-2">
-          <Button
-            color="primary"
-            className="font-bold hover:bg-hover-action w-min px-7"
-          >
-            Call to Action
-          </Button>
-          <Button
-            color="primary"
-            variant="ghost"
-            className="font-bold hover:bg-hover-action w-min px-7"
-          >
-            Call to Action
-          </Button>
+          <Link href={"https://github.com/ruben-velasquez"}>
+            <Button
+              color="primary"
+              className="font-bold hover:bg-hover-action w-min px-7"
+            >
+              View Github
+            </Button>
+          </Link>
+          <Link href={"https://www.linkedin.com/in/ruben-velasquez-b42aa3221/"}>
+            <Button
+              color="primary"
+              variant="ghost"
+              className="font-bold hover:bg-hover-action w-min px-7"
+            >
+              View LinkedIn
+            </Button>
+          </Link>
         </div>
       </div>
       <ImageHandler
-        src={"https://placehold.co/600x400?text=Hello+World"}
-        alt="Descripción de la imagen"
+        src={
+          "https://media.discordapp.net/attachments/835918308166336545/1149505579346296912/portfolio-header-photo.png"
+        }
+        alt="Header Image"
         className={"order-first md:order-last w-[100%] max-w-[400px]"}
       ></ImageHandler>
     </main>
