@@ -14,7 +14,7 @@ export default function Hero() {
     <main className="px-10 sm:px-[50px] md:px-5 lg:px-[200px] min-h-[calc(80vh-80px)] lg:min-h-[calc(50vh-80px)] grid grid-cols-1 md:grid-cols-2 justify-items-center md:justify-items-start gap-4 items-center justify-center">
       <div className="flex flex-col gap-5 max-w-sm order-last md:order-first">
         <h1
-          className={`text-6xl lg:text-7xl font-bold text-center md:text-left ${kanit.className} text-highlight`}
+          className={`text-6xl lg:text-5xl font-bold text-center md:text-left ${kanit.className} text-highlight`}
         >
           {heroText}
         </h1>

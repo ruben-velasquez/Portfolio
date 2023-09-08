@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import "@/app/favicon.ico";
 import { Providers } from "./providers";
 import Nav from "@/components/nav";
 
