@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Kanit } from "next/font/google";
 import { RiAdminLine } from "react-icons/ri";
-import { Button } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
@@ -45,21 +45,23 @@ export default function Nav() {
         </li>
       </ul>
 
-      <Link href="/login">
-        <Button
-          isIconOnly
-          size="md"
-          color="primary"
-          variant={"bordered"}
-          aria-label="Like"
-          className={"group hover:bg-action"}
-        >
-          <RiAdminLine
-            size={16}
-            className="text-action transition-all duration-700 group-hover:text-slate-200"
-          />
-        </Button>
-      </Link>
+      <Tooltip color={"primary"} content={"Admin authentication"}>
+        <Link href="/login">
+          <Button
+            isIconOnly
+            size="md"
+            color="primary"
+            variant={"bordered"}
+            aria-label="Like"
+            className={"group hover:bg-action"}
+          >
+            <RiAdminLine
+              size={16}
+              className="text-action transition-all duration-700 group-hover:text-slate-200"
+            />
+          </Button>
+        </Link>
+      </Tooltip>
     </nav>
   );
 }
