@@ -13,7 +13,7 @@ export default function AboutMe() {
     <article className="px-10 sm:px-[50px] md:px-5 lg:px-[200px] grid grid-cols-1 md:grid-cols-2 gap-[50px] lg:gap-4 items-start justify-items-center">
       <article className="flex flex-col gap-5 max-w-sm items-center order-last lg:order-first">
         <h1 className={`text-3xl font-bold ${kanit.className} text-highlight`}>
-          Who am i?
+          Who am I?
         </h1>
         <p className="text-slate-400 text-center">{woAmI}</p>
       </article>
