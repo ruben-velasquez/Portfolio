@@ -41,7 +41,7 @@ export default function Hero() {
       </div>
       <ImageHandler
         src={
-          "https://media.discordapp.net/attachments/835918308166336545/1149505579346296912/portfolio-header-photo.png"
+          "https://media.discordapp.net/attachments/835918308166336545/1149538782190764062/removal.ai_3d12c532-9319-4ed0-b27a-6747c00c8d21-header-image.png"
         }
         alt="Header Image"
         className={"order-first md:order-last w-[100%] max-w-[400px]"}
